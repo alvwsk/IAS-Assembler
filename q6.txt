@@ -1,0 +1,38 @@
+	MAPA
+-----------------------
+000     57 01 00 10 88
+010     01 01 41 40 00
+011     12 01 20 11 01
+012     07 10 42 10 14
+013     57 01 32 00 12
+014     00 00 00 00 44
+088     00 00 00 00 02
+101     00 00 00 00 57
+103     00 00 00 00 02
+104     FF FF FF FF FF
+204     00 00 00 01 03
+
+A)
+MBR = o conteúdo da palavra em 0x010
+  → 01 01 41 40 00
+IBR = vazio (pois o campo direito já foi transferido para o IR)
+IR = instrução que estava no campo direito da palavra
+  → 40 00
+MAR = 0x010 (endereço da palavra que foi buscada)
+PC = 0x011 (já incrementado para a próxima palavra)
+
+B)
+MBR = conteúdo da palavra em 0x011
+  → 12 01 20 11 01
+IR = campo esquerdo da palavra
+  → 12 01 20
+IBR = campo direito da palavra
+  → 11 01
+MAR = 0x011
+PC = 0x012
+
+C)
+AC = conteúdo de 0x014
+  → 00 00 00 00 44
+MBR = permanece com o conteúdo da palavra que foi buscada em 0x012
+  → 07 10 42 10 14
